@@ -21,7 +21,7 @@ minetest.register_node("props:statue", {
 })
 
 minetest.register_node("props:flag", {
-    description = "table",
+    description = "flag",
     drawtype = "mesh",
     mesh = "flag.obj",
     tiles = {"flag.png"},
@@ -47,6 +47,28 @@ minetest.register_node("props:table", {
     drawtype = "mesh",
     mesh = "table.obj",
     tiles = {"table.png"},
+    groups = {cracky = 3},
+    
+    paramtype = "light",
+    paramtype2 = "facedir",
+    
+      -- Même hitbox que la pierre
+      collision_box = {
+        type = "regular",
+    },
+
+    -- Permet au joueur de sélectionner correctement le bloc
+    selection_box = {
+        type = "fixed",
+        fixed = {-0.5, 0.5, -0.5, 0.5, -0.5, 0.5}, -- Taille d’un bloc classique
+    },
+})
+
+minetest.register_node("props:vase", {
+    description = "vase",
+    drawtype = "mesh",
+    mesh = "vase.obj",
+    tiles = {"vase.png"},
     groups = {cracky = 3},
     
     paramtype = "light",
